@@ -1,0 +1,25 @@
+@media (min-width: 1140px) {}
+
+/* <= 1820px */
+@media (max-width: 1820px) {}
+
+/* <= 1600px */
+@media (max-width: 1600px) {}
+
+/* <= 1440px */
+@media (max-width: 1440px) {}
+
+/* <= 1200px */
+@media (max-width: 1200px) {}
+
+/* <= 1024px */
+@media (max-width: 1024px) {}
+
+/* <= 992px */
+@media (max-width: 992px) {}
+
+/* <= 768px */
+@media (max-width: 768px) {}
+
+/* <= 576px */
+@media (max-width: 576px) {}
