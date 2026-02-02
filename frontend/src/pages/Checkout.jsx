@@ -41,7 +41,7 @@ ${productMessage}
 💰 Total Amount: ₹${totalPrice}
     `
 
-        window.location.href = `https://wa.me/8700546207?text=${encodeURIComponent(
+        window.location.href = `https://wa.me/+918700546207?text=${encodeURIComponent(
             message
         )}`
 
