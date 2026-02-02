@@ -24,6 +24,8 @@ export default function Checkout() {
         0
     )
 
+    const totalAmount = cart.length > 0 ? cart[0].price * (customer.quantity || totalQuantity) : 0
+
     const placeOrder = (e) => {
         e.preventDefault()
 
@@ -47,9 +49,9 @@ Quantity: ${customer.quantity}
 📦 Products
 ${productMessage}
 
-� Order Summary
-Total Items: ${totalQuantity}
-Total Amount: ₹${totalPrice}
+📊 Order Summary
+Total Items: ${customer.quantity || totalQuantity}
+Total Amount: ₹${totalAmount}
 Please send this message to seller for confirmation
     `
 
