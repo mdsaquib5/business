@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 const orderSchema = new mongoose.Schema({
     customer: {
         name: String,
+        email: String,
         phone: String,
         address: String
     },
@@ -13,7 +14,8 @@ const orderSchema = new mongoose.Schema({
         quantity: Number,
         price: Number
     }],
-    totalPrice: Number
+    totalPrice: Number,
+    totalQuantity: Number
 }, { timestamps: true });
 
 

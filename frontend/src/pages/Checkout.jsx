@@ -19,6 +19,11 @@ export default function Checkout() {
         0
     )
 
+    const totalQuantity = cart.reduce(
+        (sum, item) => sum + item.qty,
+        0
+    )
+
     const placeOrder = (e) => {
         e.preventDefault()
 
@@ -42,7 +47,10 @@ Quantity: ${customer.quantity}
 📦 Products
 ${productMessage}
 
-💰 Total Amount: ₹${totalPrice}
+� Order Summary
+Total Items: ${totalQuantity}
+Total Amount: ₹${totalPrice}
+Please send this message to seller for confirmation
     `
 
         window.location.href = `https://wa.me/+918700546207?text=${encodeURIComponent(
