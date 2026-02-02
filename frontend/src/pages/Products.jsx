@@ -1,38 +1,24 @@
-import { useEffect, useState } from "react";
-import api from "../api/axios";
-import ProductCard from "../components/ProductCard";
+import { useEffect, useState } from 'react';
+import { api } from '../api/api';
+import ProductCard from '../components/ProductCard';
+import Navbar from '../components/Navbar';
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    api.get("/products")
-      .then(res => setProducts(res.data.products))
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
+export default function Products() {
+    const [products, setProducts] = useState([]);
 
-  if (loading) {
+
+    useEffect(() => {
+        api.get('/products').then(res => setProducts(res.data));
+    }, []);
+
+
     return (
-      <div className="products-container">
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <p>Loading products...</p>
-        </div>
-      </div>
+        <>
+            <Navbar />
+            <div className="container grid">
+                {products.map(p => <ProductCard key={p._id} product={p} />)}
+            </div>
+        </>
     );
-  }
-
-  return (
-    <div className="products-container">
-      <div className="products-grid">
-        {products.map(product => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default Products;
+}
