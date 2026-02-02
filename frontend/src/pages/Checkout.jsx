@@ -8,8 +8,10 @@ export default function Checkout() {
 
     const [customer, setCustomer] = useState({
         name: '',
+        email: '',
         phone: '',
-        address: ''
+        address: '',
+        quantity: ''
     })
 
     const totalPrice = cart.reduce(
@@ -32,8 +34,10 @@ export default function Checkout() {
 
 👤 Customer Details
 Name: ${customer.name}
+Email: ${customer.email}
 Phone: ${customer.phone}
 Address: ${customer.address}
+Quantity: ${customer.quantity}
 
 📦 Products
 ${productMessage}
@@ -63,10 +67,29 @@ ${productMessage}
                 />
 
                 <input
+                    type="email"
+                    placeholder="Email"
+                    required
+                    onChange={(e) =>
+                        setCustomer({ ...customer, email: e.target.value })
+                    }
+                />
+
+                <input
                     placeholder="Phone"
                     required
                     onChange={(e) =>
                         setCustomer({ ...customer, phone: e.target.value })
+                    }
+                />
+
+                <input
+                    type="number"
+                    placeholder="Quantity"
+                    required
+                    min="1"
+                    onChange={(e) =>
+                        setCustomer({ ...customer, quantity: e.target.value })
                     }
                 />
 
